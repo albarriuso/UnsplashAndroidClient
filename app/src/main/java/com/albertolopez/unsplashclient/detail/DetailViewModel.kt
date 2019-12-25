@@ -21,7 +21,6 @@ class DetailViewModel @Inject constructor(
     var cameraBrandVisibility: MutableLiveData<Int> = MutableLiveData(View.GONE)
     var cameraModelDataVisibility: MutableLiveData<Int> = MutableLiveData(View.GONE)
 
-
     /**
      * Performs a network request using a coroutine to obtain the detailed information of a photo.
      * @param idPhoto the photo identifier

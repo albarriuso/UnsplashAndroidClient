@@ -12,11 +12,17 @@ import com.albertolopez.unsplashclient.remotedatasource.model.Photo
 /**
  * Adapter used to display the photos in the activity.
  */
-class PhotosAdapter(private val viewModel: MainViewModel, private val list: List<Photo>) : RecyclerView.Adapter<PhotosAdapter.PhotosViewHolder>() {
+class PhotosAdapter(private val viewModel: MainViewModel, private val list: List<Photo>) :
+    RecyclerView.Adapter<PhotosAdapter.PhotosViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotosViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = DataBindingUtil.inflate<PhotoViewBinding>(layoutInflater, R.layout.photo_view, parent, false)
+        val binding = DataBindingUtil.inflate<PhotoViewBinding>(
+            layoutInflater,
+            R.layout.photo_view,
+            parent,
+            false
+        )
         return PhotosViewHolder(binding)
     }
 
@@ -28,7 +34,8 @@ class PhotosAdapter(private val viewModel: MainViewModel, private val list: List
         holder.bind(viewModel, position)
     }
 
-    class PhotosViewHolder(private val binding: PhotoViewBinding) : RecyclerView.ViewHolder(binding.root) {
+    class PhotosViewHolder(private val binding: PhotoViewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         /**
          * When a ViewHolder's view is created, set the view model and the item's position via data-binding.

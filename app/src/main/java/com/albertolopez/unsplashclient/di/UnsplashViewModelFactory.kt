@@ -6,7 +6,6 @@ import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
 
-
 /**
  * Factory class to inject the required ViewModels.
  */
@@ -16,7 +15,9 @@ class UnsplashViewModelFactory @Inject constructor(
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        val creator = creators[modelClass] ?: creators.entries.firstOrNull {modelClass.isAssignableFrom(it.key)}?.value ?: throw IllegalArgumentException("unknown model class $modelClass")
+        val creator = creators[modelClass]
+            ?: creators.entries.firstOrNull { modelClass.isAssignableFrom(it.key) }?.value
+            ?: throw IllegalArgumentException("unknown model class $modelClass")
         return creator.get() as T
     }
 

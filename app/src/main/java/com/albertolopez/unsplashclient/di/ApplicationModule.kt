@@ -11,9 +11,11 @@ import dagger.Module
  * Useful to bind the Application class as a Context in the ApplicationComponent
  */
 
-@Module(includes = [
-    ViewModelModule::class,
-    RetrofitClient::class])
+@Module(
+    includes = [
+        ViewModelModule::class,
+        RetrofitClient::class]
+)
 
 abstract class ApplicationModule {
 

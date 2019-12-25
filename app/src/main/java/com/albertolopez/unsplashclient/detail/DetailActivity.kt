@@ -39,7 +39,6 @@ class DetailActivity : DaggerAppCompatActivity() {
         //Display back button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
         //Perform the get photo detail request and observe for its successful/unsuccessful result
         viewModel.getPhotoDetail(idPhoto).observe(this, Observer { getPhotoSuccessful ->
             //Hide progress bar once the request has finished

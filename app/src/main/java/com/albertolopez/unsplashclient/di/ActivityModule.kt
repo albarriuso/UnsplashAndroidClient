@@ -8,9 +8,9 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityModule {
 
-     @ContributesAndroidInjector
-     abstract fun contributeMainActivity(): MainActivity
+    @ContributesAndroidInjector
+    abstract fun contributeMainActivity(): MainActivity
 
-     @ContributesAndroidInjector
-     abstract fun contributeDetailActivity(): DetailActivity
+    @ContributesAndroidInjector
+    abstract fun contributeDetailActivity(): DetailActivity
 }

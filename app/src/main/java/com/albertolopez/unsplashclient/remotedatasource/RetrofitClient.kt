@@ -45,7 +45,6 @@ class RetrofitClient {
                 .build()
             return chain.proceed(request)
         }
-
     }
 
     companion object {

@@ -17,7 +17,7 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     //LiveData which is set with an image's id once it is clicked.
-    val imageId : MutableLiveData<String> = MutableLiveData()
+    val imageId: MutableLiveData<String> = MutableLiveData()
     //Photos list attached to the adapter
     private var photosList: ArrayList<Photo> = ArrayList()
     //RecyclerView's adapter
@@ -25,12 +25,12 @@ class MainViewModel @Inject constructor(
 
     //Coroutine used to obtain the list of photos to be displayed by a network request.
     val photos = liveData(Dispatchers.IO) {
-        try{
+        try {
             //Perform network request
             val obtainedPhotos = unsplashRepository.getPhotos()
             //Emit the result.
             emit(obtainedPhotos)
-        }catch (ex:Exception){
+        } catch (ex: Exception) {
             //Request failed, emit empty list.
             emit(ArrayList<Photo>())
         }
@@ -41,7 +41,7 @@ class MainViewModel @Inject constructor(
      * @param position the position of the item in the list
      * @return the small image url.
      */
-    fun getImageUrl(position: Int):String?{
+    fun getImageUrl(position: Int): String? {
         return photos.value?.get(position)?.urls?.small
     }
 
@@ -49,7 +49,7 @@ class MainViewModel @Inject constructor(
      * Sets the received lists of photos to be displayed in the recycler view.
      * @param photos the list of photos to be shown
      */
-    fun setPhotos(photos: List<Photo>){
+    fun setPhotos(photos: List<Photo>) {
         photosList.clear()
         photosList.addAll(photos)
         adapter.notifyDataSetChanged()
@@ -59,7 +59,7 @@ class MainViewModel @Inject constructor(
      * Triggered when a RecyclerView's element is clicked (via data-binding)
      * @param position the position of the clicked item
      */
-    fun onPhotoClick(position:Int){
+    fun onPhotoClick(position: Int) {
         imageId.value = photos.value?.get(position)?.id
     }
 }

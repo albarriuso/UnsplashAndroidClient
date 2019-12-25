@@ -12,6 +12,6 @@ interface WebService {
     @GET("/photos")
     suspend fun getPhotos(): List<Photo>
 
-    @GET ("/photos/{id}")
-    suspend fun getPhoto(@Path("id") id: String?):PhotoDetail
+    @GET("/photos/{id}")
+    suspend fun getPhoto(@Path("id") id: String?): PhotoDetail
 }
