@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Unsplash Client</string>
+    <string name="main_activity_load_error">Error al obtener las imágenes</string>
+    <string name="detail_activity_load_error">Error al obtener el detalle de la imagen</string>
+    <string name="detail_activity_user_title">Usuario:</string>
+    <string name="detail_activity_camera_brand">Marca Cámara:</string>
+    <string name="detail_activity_camera_model">Modelo Cámara:</string>
+    <string name="detail_activity_no_title">Sin título</string>
+
+</resources>

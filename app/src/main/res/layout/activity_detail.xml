@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="detailViewModel"
+            type="com.albertolopez.unsplashclient.detail.DetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        tools:context=".detail.DetailActivity">
+
+        <ImageView
+            android:id="@+id/largeImage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/cardview_dark_background"
+            app:imageUrlFull="@{detailViewModel.photoDetailLiveData.urls.regular}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtUserTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium"
+            android:layout_marginTop="@dimen/large"
+            android:text="@string/detail_activity_user_title"
+            android:textStyle="bold"
+            android:visibility="@{detailViewModel.userDataVisibility}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/largeImage" />
+
+        <TextView
+            android:id="@+id/txtUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small"
+            android:layout_marginTop="@dimen/large"
+            android:text="@{detailViewModel.photoDetailLiveData.user.username}"
+            android:visibility="@{detailViewModel.userDataVisibility}"
+            app:layout_constraintStart_toEndOf="@id/txtUserTitle"
+            app:layout_constraintTop_toBottomOf="@+id/largeImage" />
+
+        <TextView
+            android:id="@+id/txtCameraBrandTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium"
+            android:layout_marginTop="@dimen/large"
+            android:text="@string/detail_activity_camera_brand"
+            android:textStyle="bold"
+            android:visibility="@{detailViewModel.cameraBrandVisibility}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtUser" />
+
+        <TextView
+            android:id="@+id/txtCameraBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small"
+            android:layout_marginTop="@dimen/large"
+            android:text="@{detailViewModel.photoDetailLiveData.exif.make }"
+            android:visibility="@{detailViewModel.cameraBrandVisibility}"
+            app:layout_constraintStart_toEndOf="@id/txtCameraBrandTitle"
+            app:layout_constraintTop_toBottomOf="@+id/txtUser" />
+
+        <TextView
+            android:id="@+id/txtCameraModelTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium"
+            android:layout_marginTop="@dimen/large"
+            android:text="@string/detail_activity_camera_model"
+            android:textStyle="bold"
+            android:visibility="@{detailViewModel.cameraModelDataVisibility}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCameraBrand" />
+
+        <TextView
+            android:id="@+id/txtCameraModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small"
+            android:layout_marginTop="@dimen/large"
+            android:text="@{detailViewModel.photoDetailLiveData.exif.model}"
+            android:visibility="@{detailViewModel.cameraModelDataVisibility}"
+            app:layout_constraintStart_toEndOf="@id/txtCameraModelTitle"
+            app:layout_constraintTop_toBottomOf="@+id/txtCameraBrand" />
+
+        <FrameLayout
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black_alpha_38"
+            android:visibility="visible">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
