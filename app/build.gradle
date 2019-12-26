@@ -30,42 +30,40 @@ android {
 
 dependencies {
 
-    implementation 'com.squareup.picasso:picasso:2.5.2'
-    implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.0.2'
-    implementation 'androidx.cardview:cardview:1.0.0'
-
-
+    //AndroidX
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_viewmodel_ktx"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions"
+    implementation "androidx.recyclerview:recyclerview:$androidx_recycler"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_extensions"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_extensions"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_extensions"
+    implementation "androidx.recyclerview:recyclerview:$recycler_version"
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$androidx_core"
+    implementation "androidx.core:core-ktx:$androidx_core"
+    implementation "androidx.constraintlayout:constraintlayout:$androidx_constraint"
+    implementation "androidx.cardview:cardview:$androidx_card_view"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:$picasso_version"
 
     //Retrofit
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
 
-    // Dagger dependencies
+    // Dagger
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
     implementation "com.google.dagger:dagger-android:$dagger_version"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
     kapt "com.google.dagger:dagger-android-processor:$dagger_version"
-    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha01'
-
-
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    //Test
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-
-
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc03'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-rc03'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc03'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
-
 }
